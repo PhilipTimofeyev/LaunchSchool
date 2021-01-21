@@ -1,0 +1,5 @@
+It is saying that there need to be two arguments in the parameter, yet only one is being entered.
+
+Such as def add(a, b)
+
+And only giving a, ie. add(4)
