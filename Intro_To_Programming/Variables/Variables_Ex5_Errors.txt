@@ -1,0 +1,5 @@
+For the first example, x prints "3"
+
+For the second example, x prints an error.
+
+Only the second gives an error because x was created inside the scope of a method, therefore cannot be accessed on the outside.
