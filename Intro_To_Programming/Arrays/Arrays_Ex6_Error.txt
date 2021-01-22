@@ -1,0 +1,6 @@
+names is trying to call the argument 'margaret' which is a string.
+
+The parameter for the index of an array is an integer.
+
+To replace margaret with jody, we need to pop margaret out, (names.pop)
+Then push jody in, name.push("jody")
