@@ -1,0 +1,7 @@
+x = "hi there"
+my_hash = {x: "some value"}
+my_hash2 = {x => "some value"}
+
+In my_hash, "hi there" is a string key to the value of "some value" using a variable.
+
+In my_hash2, "hi there" is a string key to the value of "some value" using a string and the old method.
