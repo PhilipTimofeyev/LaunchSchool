@@ -1,0 +1,1 @@
+Exception handling is using ruby's built in methods to counter errors that can come about when dealing with unpredictable real world input. It allows code to continue executing even if there is an error such as nil.
