@@ -1,0 +1,1 @@
+Break returns nil when no arguments are passed to break, or the value of the argument.
