@@ -1,0 +1,1 @@
+# will print 0, 1, 2, nil because it returns and exists method after 2, and nil because the return doesn't have a value.

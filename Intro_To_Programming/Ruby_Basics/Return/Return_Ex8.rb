@@ -1,0 +1,1 @@
+#1, 2, 3, 4, 10 because the lest value is 10.
