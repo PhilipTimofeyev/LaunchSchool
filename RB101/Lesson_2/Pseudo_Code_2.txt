@@ -1,0 +1,34 @@
+Informal
+----------
+Given an array of strings
+
+Iterate through the collection one by one
+	- save the first value as the first value
+	- for each iteration, add the value to the first value
+
+After iterating through the collection, return the saved value.
+
+
+Formal
+----------
+
+START
+# Given a collection of strings in an array called "strings"
+
+SET iterator = 1
+SET merged_string = string within strings collection at space 1
+
+WHILE ITERATOR <= elements in array
+	add current_string to merged_string
+
+iterator += 1
+
+Print merged_string
+
+
+END
+
+
+
+
+	

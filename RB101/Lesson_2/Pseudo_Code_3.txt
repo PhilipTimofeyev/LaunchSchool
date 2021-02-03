@@ -1,0 +1,42 @@
+Informal
+----------
+Given an array of integers named integers
+
+Create a new array called every_other
+
+Iterator through integers one by one
+	- push the starting value to every_other
+	- check if the index value is even
+	- if even, push to every_other
+	- elsif odd, do not push
+
+After iterating through the collection, return every_other
+
+
+Formal
+----------
+
+START
+
+# Given a collection of integers called "integers"
+
+SET every_other = every other integer in array "integer"
+SET iterator = 1
+
+While iterator <= length of numbers
+	SET current_number - value within the integers collection at space "iterator"
+	If current_value[index].odd? == true
+		push current_value to every_other
+	else
+		ignore current_number
+	
+	iterator += 1
+
+PRINT every_other 
+
+END
+
+
+
+
+	

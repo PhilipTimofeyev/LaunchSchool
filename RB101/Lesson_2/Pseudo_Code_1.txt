@@ -1,0 +1,38 @@
+Nonformal
+----------
+
+Need to obtain two integers
+	- ask user for the first integer
+	- assign integer to variable
+	- ask user for the second integer
+	- assign integer to variable
+
+Need to convert to integer, add, and give result
+	- convert variables to integer format
+	- add variables together
+	- return the result
+
+
+Formal
+----------
+
+START
+
+PRINT "Please enter an integer"
+GET integer1 from the user
+SET integer1 as a variable
+
+PRINT "Please enter another integer"
+GET integer2 from the user
+SET integer2 as a variable
+
+READ integer1 and add to READ integer2 and SET to result
+
+PRINT result
+
+END
+
+
+
+
+	
