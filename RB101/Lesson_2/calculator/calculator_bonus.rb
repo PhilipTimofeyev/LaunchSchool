@@ -1,9 +1,11 @@
-LANGUAGE = 'es'
+LANGUAGE = 'en'
 
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
 
-
+def clear_screen
+  Gem.win_platform? ? (system "cls") : (system "clear")
+end
 
 def prompt(key)
   def messages(message, lang='en')
@@ -38,6 +40,7 @@ def operation_to_message(op)
   end
 end
 
+clear_screen
 prompt('welcome')
 
 name = ''
