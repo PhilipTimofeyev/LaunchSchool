@@ -12,7 +12,8 @@ en:
         \n1) add
         \n2) subtract
         \n3) multiply
-        \n4) divide"
+        \n4) divide
+        \n "
   choose: "Must choose 1, 2, 3, or 4"
   operation: "#{operation_to_message(operator)} the two numbers."
   again: "Do you want to perform another calculation? (y/n)"
