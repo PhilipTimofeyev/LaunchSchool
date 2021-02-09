@@ -1,4 +1,4 @@
-LANGUAGE = 'en'
+LANGUAGE = 'en' # en for English and es for Spanish
 
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
@@ -96,7 +96,7 @@ def which_operator
 end
 
 def divided_by_zero?(operator, number2)
-  if number2 == 0.0 && operator == '4'
+  if number2 == 0 && operator == '4'
     prompt('divide_by_zero')
     sleep(2)
     clear_screen
@@ -128,13 +128,17 @@ def display_solution(result)
   else
     result = format('%g', result)
   end
-  puts "The result is #{result}"
+  puts format(messages('result', LANGUAGE), result: result)
 end
 
 def do_again?
+  response = ''
   prompt('again')
-  answer = gets.chomp
-  answer.downcase
+  loop do
+    response = gets.chomp.downcase
+    %w(y n).include?(response) ? break : prompt('invalid_response')
+  end
+  response
 end
 
 def calc_loop
@@ -145,8 +149,9 @@ def calc_loop
     redo if divided_by_zero?(operator, number2) == true
     solution = mathemize(number1, number2, operator)
     display_solution(solution)
-    break unless do_again?.include?('y' || 'yes')
+    break unless do_again?.include?('y')
   end
+  clear_screen
 end
 
 greet_name

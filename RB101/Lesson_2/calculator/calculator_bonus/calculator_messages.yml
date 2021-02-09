@@ -16,7 +16,9 @@ en:
         \n "
   choose: "Must choose 1, 2, 3, or 4"
   operation: "#{operation_to_message(operator)} the two numbers."
+  result: "The result is %{result}"
   again: "Do you want to perform another calculation? (y/n)"
+  invalid_response: "Invalid response. Please enter y/n."
   goodbye: "Thank you for using Calculator. Goodbye!"
 es:
   welcome: "Bienvenido a la calculadora! Entre su nombre:"
@@ -34,5 +36,7 @@ es:
         \n4) multiplicar"
   choose: "Debe elegir 1, 2, 3 o 4"
   operation: "#{operation_to_message(operator)} los dos números."
+  result: "El resultado es %{result}"
   again: "¿Quieres realizar otro cálculo? (y/n)"
+  invalid_response: "Respuesta invalida. Ingrese y/n."
   goodbye: "Gracias por usar la Calculadora. ¡Adiós!"

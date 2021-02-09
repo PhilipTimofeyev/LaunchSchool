@@ -1,0 +1,38 @@
+
+en:
+  welcome: "Hello and welcome to the Mortgage/Car Loan Calculator!
+  \nYou will need to provide three pieces of information:
+  \n
+  \n- the loan amount
+  \n- the Annual Percentage Rate (APR)
+  \n- the loan duration in months
+  \n
+  \n"
+  loan_entry: "Please enter the loan amount:"
+  positive_number: "Invalid number. Please enter a positive number."
+  apr_entry: "Please enter the Annual Percentage Rate (APR) as a percentage:"
+  duration_entry: "Please enter the loan duration in months:"
+  whole#?: "Invalid number. Please enter the amount of months as a whole number."
+  result: "=> Your monthly payment will be $%{monthly_payment}"
+  do_again?: "Would you like to calculate a different monthly rate? (Please type Y or N)"
+  invalid_response: "Please put a valid response (Y/N)"
+  goodbye: "Thank you for using the Mortgage/Car Loan Calculator!"
+
+fr:
+  welcome: "Bonjour et bienvenue dans le calculateur de prêt hypothécaire / automobile!
+  \nVous devrez fournir trois informations:
+  \n
+  \n- le montant du prêt
+  \n- le taux annuel en pourcentage (APR)
+  \n- la durée du prêt en mois
+  \n
+  \n"
+  loan_entry: "Veuillez saisir le montant du prêt:"
+  positive_number: "Numéro invalide. Veuillez saisir un nombre positif."
+  apr_entry: "Veuillez saisir le taux annuel en pourcentage (TAEG) en pourcentage:"
+  duration_entry: "Veuillez saisir la durée du prêt en mois:"
+  whole#?: "Numéro invalide. Veuillez saisir le nombre de mois sous forme de nombre entier."
+  result: "=> Votre paiement mensuel sera $%{monthly_payment}"
+  do_again?: "Souhaitez-vous calculer un tarif mensuel différent? (Veuillez taper Y ou N)"
+  invalid_response: "Veuillez mettre une réponse valide (Y/N)"
+  goodbye: "Merci d'utiliser le calculateur de prêt hypothécaire / automobile!"
