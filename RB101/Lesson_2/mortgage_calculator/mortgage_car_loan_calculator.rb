@@ -86,7 +86,13 @@ def new_calculation?
     response = gets.chomp.downcase
     %w(y n).include?(response) ? break : prompt('invalid_response')
   end
+  clear_screen
   response
+end
+
+def goodbye
+  clear_screen
+  prompt('goodbye')
 end
 
 def mortgage_loop
@@ -102,9 +108,8 @@ def mortgage_loop
     show_result(monthly_payment)
     response = new_calculation?
   end
-  clear_screen
-  prompt('goodbye')
 end
 
 welcome
 mortgage_loop
+goodbye
