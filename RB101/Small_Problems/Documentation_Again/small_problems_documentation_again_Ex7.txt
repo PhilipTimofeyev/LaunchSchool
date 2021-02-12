@@ -1,0 +1,1 @@
+s.public_methods(all = false).inspect
