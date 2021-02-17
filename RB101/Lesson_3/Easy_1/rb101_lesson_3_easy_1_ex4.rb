@@ -1,0 +1,1 @@
+# delete_at removes at the given index while delete(n) deletes the specific element. 
