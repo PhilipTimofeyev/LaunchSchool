@@ -18,7 +18,10 @@ def welcome
   clear_screen
   prompt "Hello and welcome to Tic-Tac_Toe!"
   puts ""
-  prompt "The goal is to get your marker to fill an entire line across."
+  prompt "The goal is to get your marker to fill an entire
+  row, column, or line diagonally."
+  puts ""
+  prompt "The person with the highest score at the end of the match, wins!"
   puts ""
 end
 
