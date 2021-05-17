@@ -1,3 +1,5 @@
+'DELETE'
+
 INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
@@ -235,7 +237,7 @@ def computer_turn!(brd, win_lines)
              ai_find_squares(COMPUTER_MARKER, brd, win_lines).sample
            elsif ai_strategy(PLAYER_MARKER, brd, win_lines).any?      # defense
              ai_find_squares(PLAYER_MARKER, brd, win_lines).sample
-           elsif brd.size.odd?
+           elsif brd.size.odd? && brd[(brd.size / 2) + 1] == ' '
              (brd.size / 2) + 1                                       # center
            else
              empty_squares(brd).sample
@@ -290,19 +292,6 @@ def when_to_not_minimax?(brd)
   empty_squares(brd).size > 11
 end
 
-def detect_winner(brd, win_lines)
-  win_lines.each do |line|
-    if brd.values_at(*line).all?('X')
-      return 'Player'
-    elsif brd.values_at(*line).all?('O')
-      return 'Computer'
-    elsif board_full?(brd)
-      return 'Tie'
-    end
-  end
-  nil
-end
-
 def minimax_score(brd, win_lines, depth)
   case detect_winner(brd, win_lines)
   when 'Computer'
@@ -320,6 +309,21 @@ end
 
 def alternate_player!(players)
   players.reverse!
+end
+
+def detect_winner(brd, win_lines)
+  winner = nil
+  win_lines.each do |line|
+    if brd.values_at(*line).all?('X')
+      winner = 'Player'
+    elsif brd.values_at(*line).all?('O')
+      winner = 'Computer'
+    end
+  end
+    if board_full?(brd) && winner.nil?
+      winner = 'Tie'
+    end
+  winner
 end
 
 def display_score(p_score, c_score)
