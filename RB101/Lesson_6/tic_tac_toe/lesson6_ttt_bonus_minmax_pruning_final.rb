@@ -1,5 +1,3 @@
-'DELETE'
-
 INITIAL_MARKER = ' '
 PLAYER_MARKER = 'X'
 COMPUTER_MARKER = 'O'
@@ -193,11 +191,9 @@ end
 
 # Computer Move
 
-# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/MethodLength, Metrics/AbcSize
 def ai_turn!(brd, win_lines)
-  if when_to_not_minimax?(brd)
-    computer_turn!(brd, win_lines)
-  else
+  if when_to_minimax?(brd)
     prompt "AI is thinking..."
     best_score = -Float::INFINITY
     best_move = nil
@@ -213,9 +209,9 @@ def ai_turn!(brd, win_lines)
     end
     sleep(1)
     brd[best_move] = COMPUTER_MARKER
+  else computer_turn!(brd, win_lines)
   end
 end
-# rubocop:enable Metrics/MethodLength
 
 # Normal AI Moveset
 
@@ -245,6 +241,7 @@ def computer_turn!(brd, win_lines)
 
   brd[square] = COMPUTER_MARKER
 end
+# rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
 # Minimax with Pruning AI Moveset
 
@@ -288,8 +285,8 @@ end
 
 # When to use on MinMax
 
-def when_to_not_minimax?(brd)
-  empty_squares(brd).size > 11
+def when_to_minimax?(brd)
+  empty_squares(brd).size < 12
 end
 
 def minimax_score(brd, win_lines, depth)
@@ -320,9 +317,9 @@ def detect_winner(brd, win_lines)
       winner = 'Computer'
     end
   end
-    if board_full?(brd) && winner.nil?
-      winner = 'Tie'
-    end
+  if board_full?(brd) && winner.nil?
+    winner = 'Tie'
+  end
   winner
 end
 
