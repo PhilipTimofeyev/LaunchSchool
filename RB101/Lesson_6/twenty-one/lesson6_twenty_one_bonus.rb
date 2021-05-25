@@ -234,7 +234,6 @@ end
 
 # Game
 
-
 welcome
 loop do
   score = { player: 0, dealer: 0 }
