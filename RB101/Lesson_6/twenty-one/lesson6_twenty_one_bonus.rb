@@ -36,7 +36,7 @@ def welcome
   11 or 1, depending on your hand. At the end of
   the round, your total hand score will be compared to
   the dealer's. Whoever is closest to #{TO_WHAT_NUM}, wins! If you
-  go over 21, then that's a bust and you lose!
+  go over #{TO_WHAT_NUM}, then that's a bust and you lose!
 
   Ready to play?
   "
