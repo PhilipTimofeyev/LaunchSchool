@@ -1,6 +1,6 @@
 require 'io/console'
 
-WINNING_SCORE = 2
+WINNING_SCORE = 5
 TO_WHAT_NUM = 21
 SUITS = ['Spades', 'Clubs', 'Hearts', 'Diamonds']
 FACE_CARDS = ['Jack', 'Queen', 'King']
