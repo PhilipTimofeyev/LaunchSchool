@@ -108,12 +108,6 @@ def display_hand(hand, totals, who, player: true, end_round: false)
   puts ""
 end
 
-def display_hands_for_player(p_hand, d_hand, totals)
-  clear_screen
-  display_hand(p_hand, totals, 'player')
-  display_hand(d_hand, totals, 'dealer', player: false)
-end
-
 def hand_total(hand)
   total = hand.reduce(0) { |sum, card| sum + card[:value] }
   how_many_aces(hand).times { total -= 10 if total > TO_WHAT_NUM }
