@@ -1,5 +1,14 @@
-def repeat(string, multiply)
-  multiply.times{puts string}
+class MeMyselfAndI
+  self
+
+  def self.me
+    self
+  end
+
+  def myself
+    self
+  end
 end
 
-repeat('Hello', 3)
+i = MeMyselfAndI.new
+p i.myself
