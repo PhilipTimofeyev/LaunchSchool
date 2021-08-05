@@ -103,13 +103,22 @@ class Lizard
 end
 
 class Player
-  MOVES = ['rock', 'paper', 'scissors', 'spock', 'lizard']
+  MOVES = { rock: Rock.new,
+            paper: Paper.new,
+            scissors: Scissors.new,
+            spock: Spock.new,
+            lizard: Lizard.new }
+
   attr_accessor :moves, :name, :score
 
   def initialize
     set_name
     @score = 0
     @moves = []
+  end
+
+  def to_s
+    "#{name}:".ljust(14) + "#{score} "
   end
 
   def current_move
@@ -120,45 +129,39 @@ class Player
     self.score += 1
   end
 
-  def make_choice(player_choice)
-    case player_choice
-    when 'rock'     then moves << Rock.new
-    when 'paper'    then moves << Paper.new
-    when 'scissors' then moves << Scissors.new
-    when 'spock'    then moves << Spock.new
-    when 'lizard'   then moves << Lizard.new
-    end
-  end
+  private
 
-  def to_s
-    "#{name}:".ljust(14) + "#{score} "
+  def make_choice(player_choice)
+    moves << MOVES.fetch(player_choice.to_sym)
   end
 end
 
 class Human < Player
   include AuxMethods
 
-  def set_name
-    n = ""
-    loop do
-      prompt "Please enter your name:"
-      n = gets.chomp
-      break unless n.empty?
-      puts "Sorry, must enter a value."
-    end
-    self.name = n
-  end
-
   def choose
     choice = nil
     loop do
       prompt "Please enter rock, paper, scissors, spock, or lizard:"
-      choice = gets.chomp.downcase
-      break if MOVES.include? choice
+      choice = gets.chomp.downcase.strip
+      break if MOVES.keys.include?(choice.to_sym)
       clear_screen
       prompt "Sorry, invalid choice."
     end
     make_choice(choice)
+  end
+
+  private
+
+  def set_name
+    n = ""
+    loop do
+      prompt "Please enter your name:"
+      n = gets.chomp.strip
+      break unless n.empty?
+      puts "Sorry, must enter a value."
+    end
+    self.name = n
   end
 end
 
@@ -175,6 +178,13 @@ class Computer < Player
     display_chosen_player
   end
 
+  def choose
+    choice = player.class::PERSONALITY.sample
+    make_choice(choice)
+  end
+
+  private
+
   def select_player(answer)
     case answer
     when 'r2d2'     then R2D2.new
@@ -185,23 +195,23 @@ class Computer < Player
     end
   end
 
-  def display_players
-    PLAYERS.each { |player| puts "\n-- #{player.capitalize}" }
-    puts "\n-- Random"
-  end
-
   def ask_what_player
     answer = ''
     loop do
       prompt "Whom would you like to play against? Your choices are:"
       display_players
-      answer = gets.chomp.downcase
+      answer = gets.chomp.downcase.strip
       break if answer == 'random' || PLAYERS.include?(answer)
       clear_screen
       puts "Sorry, please enter one of the options."
     end
 
     answer == 'random' ? select_player(PLAYERS.sample) : select_player(answer)
+  end
+
+  def display_players
+    PLAYERS.each { |player| puts "\n-- #{player.capitalize}" }
+    puts "\n-- Random"
   end
 
   def display_chosen_player
@@ -211,11 +221,6 @@ class Computer < Player
 
   def set_name
     self.name = player.name
-  end
-
-  def choose
-    choice = player.class::PERSONALITY.sample
-    make_choice(choice)
   end
 end
 
@@ -228,7 +233,7 @@ class R2D2 < Computer
 end
 
 class Hal < Computer
-  PERSONALITY = %w(rock scissor scissors scissors spock spock hal hal)
+  PERSONALITY = %w(rock scissors scissors scissors spock spock lizard lizard)
 
   def initialize
     self.name = 'Hal'
@@ -273,6 +278,8 @@ class RPSGame
     @round = 1
   end
 
+  private
+
   def display_welcome_message
     prompt "Welcome to RPSSL!"
     puts "First one to get #{WINNING_SCORE} points wins the match!"
@@ -307,6 +314,10 @@ class RPSGame
     increment_round
   end
 
+  def increment_round
+    self.round += 1
+  end
+
   def match_winner?
     human.score == WINNING_SCORE || computer.score == WINNING_SCORE
   end
@@ -321,10 +332,6 @@ class RPSGame
     display_score
   end
 
-  def increment_round
-    self.round += 1
-  end
-
   def display_score
     prompt match_winner? ? "The final score is:" : "The current score is:"
     puts human
@@ -337,7 +344,7 @@ class RPSGame
     answer = nil
     loop do
       prompt "Would you like to play another match? (y/n)"
-      answer = gets.chomp
+      answer = gets.chomp.strip
       break if ['y', 'n'].include? answer.downcase
       puts "Sorry, must be y or n."
     end
@@ -360,7 +367,7 @@ class RPSGame
     loop do
       prompt "Would you like to see the previous match's "\
       "move history of each round? (y/n)"
-      answer = gets.chomp
+      answer = gets.chomp.strip
       break if ['y', 'n'].include? answer.downcase
       puts "Sorry, must be y or n."
     end
@@ -397,6 +404,8 @@ class RPSGame
       end
     end
   end
+
+  public
 
   def play
     main_loop

@@ -1,4 +1,3 @@
-x = %w(lol yes)
+MOVES = {rock: 'lol', paper: 'lollll'}
 
-
-p x.include?('lol')
+p MOVES.fetch(:rock)
