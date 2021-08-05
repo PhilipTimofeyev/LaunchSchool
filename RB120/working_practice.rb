@@ -1,14 +1,4 @@
-class MeMyselfAndI
-  self
+x = %w(lol yes)
 
-  def self.me
-    self
-  end
 
-  def myself
-    self
-  end
-end
-
-i = MeMyselfAndI.new
-p i.myself
+p x.include?('lol')

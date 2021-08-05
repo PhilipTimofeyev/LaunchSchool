@@ -82,7 +82,7 @@ The `to_s` method comes built in to every class in Ruby. If we have the `GoodDog
 puts sparky      # => #<GoodDog:0x007fe542323320>
 ```
 
-The `puts` method automatically calls `to_s` on it's argument, which in this case is the `sparky` object. `puts sparky` is equivelent to `puts sparky.to_s`. The reason we get this output is because by default, the `to_s` method returns the name of the obejct's class and an encoding of the object id. 
+The `puts` method automatically calls `to_s` on it's argument, which in this case is the `sparky` object. `puts sparky` is equivelent to `puts sparky.to_s`. The reason we get this output is because by default, the `to_s` method returns the name of the object's class and an encoding of the object id. 
 
 `puts` method calls `to_s` *for any argument that is not an array. For an array, it writes on seperate lines the result of calling* `to_s` *on each element of the array.*
 
@@ -137,6 +137,8 @@ irb :001 > "#{sparky}"
 
 **`to_s` is called automatically on the object when we use it with puts or string interpolation.**
 
+*The `to_s` method is defined in the `Object` class of Ruby and therefore all Ruby objects have the `to_s` method.*
+
 ### More About Self
 
 Current two uses of `self`.
@@ -176,8 +178,6 @@ p sparky.what_is_self
 
 *When an instance method uses `self` from within the class, it references the calling object.* Therefore, from within the `change_info` method, calling `self.name=` acts the same as calling `sparky.name=` from outside the class (you cannot call `sparky.name=`) inside the class since it isn't in scope.
 
-
-
 Another place we use `self` is when defining class methods:
 
 ```ruby
@@ -204,3 +204,4 @@ end
   - `def self.name=(n)` is the same as `def GoodDog.name=(n)`.
 
 `self` is a way of being explicit about what our program is referencing and what our intentions are as far as behavior. It changes depending on the scope it is used in, so it's important to be aware if you're inside an instance method or not. 
+
