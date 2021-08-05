@@ -32,10 +32,6 @@ class Rock
   def >(other_move)
     other_move.class == Scissors || other_move.class == Lizard
   end
-
-  def <(other_move)
-    other_move.class == Paper || other_move.class == Spock
-  end
 end
 
 class Paper
@@ -47,10 +43,6 @@ class Paper
 
   def >(other_move)
     other_move.class == Rock || other_move.class == Spock
-  end
-
-  def <(other_move)
-    other_move.class == Scissors || other_move.class == Lizard
   end
 end
 
@@ -64,10 +56,6 @@ class Scissors
   def >(other_move)
     other_move.class == Paper || other_move.class == Lizard
   end
-
-  def <(other_move)
-    other_move.class == Rock || other_move.class == Spock
-  end
 end
 
 class Spock
@@ -80,10 +68,6 @@ class Spock
   def >(other_move)
     other_move.class == Scissors || other_move.class == Rock
   end
-
-  def <(other_move)
-    other_move.class == Paper || other_move.class == Lizard
-  end
 end
 
 class Lizard
@@ -95,10 +79,6 @@ class Lizard
 
   def >(other_move)
     other_move.class == Spock || other_move.class == Paper
-  end
-
-  def <(other_move)
-    other_move.class == Scissors || other_move.class == Rock
   end
 end
 
@@ -298,7 +278,7 @@ class RPSGame
     self.round_winner =
       if human.current_move > computer.current_move
         human
-      elsif human.current_move < computer.current_move
+      elsif computer.current_move > human.current_move
         computer
       end
   end
