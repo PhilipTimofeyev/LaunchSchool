@@ -1,3 +1,9 @@
-MOVES = {rock: 'lol', paper: 'lollll'}
+ CHOICES_HSH = {
+    rock: ['r', 'rock'],
+    scissors: ['s', 'scissors'],
+    paper: ['p', 'paper'],
+    spock: ['sp', 'spock'],
+    lizard: ['l', 'lizard']
+  }
 
-p MOVES.fetch(:rock)
+  p CHOICES_HSH.select {|_, v| v.include?('rock') }.keys.first
