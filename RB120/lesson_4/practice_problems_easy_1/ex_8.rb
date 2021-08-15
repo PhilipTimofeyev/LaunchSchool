@@ -1,0 +1,1 @@
+#self refers to the object itself, or the instance of the Cat class. So here it refers to the @age instance variable of the specific Cat instance.

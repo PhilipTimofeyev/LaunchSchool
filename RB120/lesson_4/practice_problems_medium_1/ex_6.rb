@@ -1,0 +1,1 @@
+# There is no difference in how the code behaves.

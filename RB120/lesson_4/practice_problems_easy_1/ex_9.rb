@@ -1,0 +1,1 @@
+#self refers to the class, meaning it is a class method.
