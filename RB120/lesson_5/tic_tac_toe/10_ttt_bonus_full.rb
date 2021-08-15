@@ -240,8 +240,6 @@ module HardMoveset
     end
   end
 
-  # max_depth method not used
-
   def max_depth
     case board.size
     when 9 then 7
