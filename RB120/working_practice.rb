@@ -1,3 +1,9 @@
-x = '1'
+x = [nil, nil, 3, nil, 4, nil]
 
-p x.match?(/[0-9]/)
+y = nil
+
+x.each do |el|
+  y ||= el
+end
+
+p y
