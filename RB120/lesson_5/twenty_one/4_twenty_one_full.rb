@@ -267,6 +267,8 @@ class Table
 
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize, Layout/LineLength
 
+  private
+
   def table_empty_space(char)
     char * TABLE_SIZE
   end
@@ -329,7 +331,6 @@ class TwentyOne
       begin_game_io
       deal_cards
       player_turn
-      table.draw
       dealer_turn unless player.busted?
       show_result
       break unless another_round?
@@ -446,7 +447,7 @@ class TwentyOne
     end
   end
 
-  def reveal_table
+  def reveal_table_io
     puts ""
     center_text "Press any key to reveal the table and totals"
     $stdin.getch
@@ -462,7 +463,7 @@ class TwentyOne
     else
       display_winner
     end
-    reveal_table
+    reveal_table_io
   end
 
   def another_round?
