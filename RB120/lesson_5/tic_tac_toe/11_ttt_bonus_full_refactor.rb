@@ -88,7 +88,8 @@ module HumanMoveset
     puts "\nEnter a name for #{self.class::PLAYER}:"
     player_name = nil
     loop do
-      player_name = gets.chomp.strip
+      player_name = gets.chomp
+      p player_name
       break unless name_validation(player_name)
       puts "Sorry, please enter a name between 1 and 12 characters."
     end
